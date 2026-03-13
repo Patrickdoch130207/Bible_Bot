@@ -140,7 +140,6 @@ const HistorySidebar = ({ isOpen, onClose, registerRefresh }) => {
       className={`
         fixed inset-y-0 left-0 z-50 w-[270px] bg-lumiere-dark
         transform transition-transform duration-300 ease-in-out
-        md:relative md:translate-x-0
         ${isOpen ? "translate-x-0" : "-translate-x-full"}
       `}
     >
