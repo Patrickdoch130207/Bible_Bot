@@ -46,7 +46,7 @@ Bible_Bot/
 ├── README.md             # This documentation
 └── [Backend Repo]        # Hosted separately on Hugging Face
 
-
+```
 
 ## 🔗 Live Demo
 🚀 **Access the application here**: [https://lumierebiblebot.vercel.app](https://lumierebiblebot.vercel.app)  
