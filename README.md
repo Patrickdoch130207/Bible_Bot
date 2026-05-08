@@ -1,10 +1,10 @@
-# 🕊️ Lumière - AI Spiritual Assistant (Hybrid Cloud RAG)
+#  Lumière - AI Spiritual Assistant (Hybrid Cloud RAG)
 
 **Lumière** is a high-performance spiritual assistant. It uses a **Decoupled Architecture** to combine the speed of a React frontend with the specialized power of an AI-optimized backend.
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 To handle the heavy Machine Learning requirements (Sentence-Transformers & LLMs) while maintaining a fast user interface, this project is split across two specialized cloud platforms:
 
@@ -16,7 +16,7 @@ To handle the heavy Machine Learning requirements (Sentence-Transformers & LLMs)
 
 ---
 
-## 🚀 Key Features
+##  Key Features
 
 * **Intelligent RAG System**: Retrieves biblical verses based on semantic meaning rather than just keywords.
 * **Contextual Memory**: Remembers your previous questions within a session thanks to MongoDB.
@@ -25,7 +25,7 @@ To handle the heavy Machine Learning requirements (Sentence-Transformers & LLMs)
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Component | Technology | Hosting |
 | :--- | :--- | :--- |
@@ -36,7 +36,7 @@ To handle the heavy Machine Learning requirements (Sentence-Transformers & LLMs)
 
 ---
 
-## 📂 Project Layout
+##  Project Layout
 
 ```text
 Bible_Bot/
