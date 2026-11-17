@@ -1,4 +1,6 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const ChatMessage = ({ message }: { message: any }) => {
   const isAssistant = message.role === "assistant";
@@ -34,11 +36,63 @@ const ChatMessage = ({ message }: { message: any }) => {
         </p>
 
         {/* Contenu */}
-        <p className={`text-[13.5px] leading-relaxed whitespace-pre-wrap ${
-          isAssistant ? "text-lumiere-dark/85" : "text-white"
-        }`}>
-          {message.content}
-        </p>
+        {isAssistant ? (
+          <div className="text-[13.5px] leading-relaxed text-lumiere-dark/85 space-y-2.5">
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                h1: ({ children }) => (
+                  <h1 className="text-[16px] font-bold text-lumiere-dark mt-3 mb-1.5">{children}</h1>
+                ),
+                h2: ({ children }) => (
+                  <h2 className="text-[15px] font-bold text-lumiere-dark mt-3.5 mb-1.5">{children}</h2>
+                ),
+                h3: ({ children }) => (
+                  <h3 className="text-[14px] font-semibold text-lumiere-dark mt-3 mb-1">{children}</h3>
+                ),
+                p: ({ children }) => (
+                  <p className="leading-relaxed">{children}</p>
+                ),
+                strong: ({ children }) => (
+                  <strong className="font-semibold text-lumiere-dark">{children}</strong>
+                ),
+                ul: ({ children }) => (
+                  <ul className="list-disc pl-5 space-y-1">{children}</ul>
+                ),
+                ol: ({ children }) => (
+                  <ol className="list-decimal pl-5 space-y-1">{children}</ol>
+                ),
+                hr: () => (
+                  <hr className="my-3 border-lumiere-dark/10" />
+                ),
+                table: ({ children }) => (
+                  <div className="overflow-x-auto my-2.5 rounded-lg border border-lumiere-dark/10">
+                    <table className="w-full text-left border-collapse text-[12.5px]">
+                      {children}
+                    </table>
+                  </div>
+                ),
+                thead: ({ children }) => (
+                  <thead className="bg-lumiere-dark/5 text-lumiere-dark font-semibold">
+                    {children}
+                  </thead>
+                ),
+                th: ({ children }) => (
+                  <th className="px-3 py-2 border-b border-lumiere-dark/10">{children}</th>
+                ),
+                td: ({ children }) => (
+                  <td className="px-3 py-2 border-b border-lumiere-dark/5 align-top">{children}</td>
+                ),
+              }}
+            >
+              {message.content}
+            </ReactMarkdown>
+          </div>
+        ) : (
+          <p className="text-[13.5px] leading-relaxed whitespace-pre-wrap text-white">
+            {message.content}
+          </p>
+        )}
 
         {/* ── Versets sources ── */}
         {isAssistant && sources.length > 0 && (
